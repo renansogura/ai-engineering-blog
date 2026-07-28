@@ -4,7 +4,7 @@ Quando iniciei a jornada para estudar agentes de IA eu tinha em mente que era al
 
 **Componentes essenciais de sistemas de agentes:**
 
-![banner](assets/componentes_essenciais_agents.png)
+![banner](https://raw.githubusercontent.com/renansogura/ai-engineering-blog/main/assets/componentes_essenciais_agents.png)
 
 Na imagem que tomei como referência do livro mas que foi gerada pelo claude conseguimos entender melhor quais são os principais componentes de um agente. Curiosamente, o agente se parece muito com nós humanos em termo de estrutura. Pense na orquestração como se fosse o nosso cérebro decidindo o que vamos fazer, ele é responsável pela coordenação para os demais componentes. 
 
