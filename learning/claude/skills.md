@@ -17,3 +17,7 @@ Primeiro e mais importante, o que é uma skill? Trata-se de um pacote de instru�
 É inegável o quanto as skills do claude tem tornado o meu dia muito mais rápido e eficiente. No entanto, há cuidados que precisamos tomar. Apesar do código não ser mais utilizado, isso não significa que você não deve aprender a programar. Os melhores usuários de Claude que eu conheci são excelentes programadores e o motivo é simples: Eles entendem a lógica e sabem avaliar se o resultado é factível ou não. A IA é treinada em cima de dados que nós humanos produzimos, nesse sentido, se nós adoramos uma "gambiarra" porque ela não poderia gostar também? 
 
 É extremamente divertido explorar as funcionalidades do Claude, no entanto, é importante não se limitar a achar que ele resolve tudo. Ele é apenas mais uma ferramenta que chegou para mudar a forma como trabalhamos, no entanto, o conhecimento, decisão e responsabilidade continuam sendo nossos. Questione sempre se essa decisão faz sentido.
+
+**Referências:**
+
+1. https://support.claude.com/pt/articles/12512176-o-que-sao-habilidades
