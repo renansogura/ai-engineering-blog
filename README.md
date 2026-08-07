@@ -17,10 +17,10 @@ Esse módulo gostaria de compartilhar as ferramentas de trabalho que estou utili
 ```
 ai-engineering-blog/
 ├── Tech/
-│   └── books/          → livros de tecnologia, AI, engenharia
+│   └── books/          → livros de tecnologia, AI, engenharia 
 ├── learning/
 │   └── books/          → leituras fora do universo tech
 └── README.md
 ```
 
-Esse repositório é pessoal, mas se você leu algo que escrevi e quer trocar ideia, fique a vontade para entrar em contato :) 
+Esse repositório é pessoal, mas se você leu algo que escrevi e quer trocar ideia, fique a vontade para entrar em contato :)  
