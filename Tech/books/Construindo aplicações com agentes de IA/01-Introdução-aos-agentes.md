@@ -3,6 +3,9 @@ title: Introdução aos agentes
 book: Construindo aplicações com agentes de IA
 emoji: 🤖
 category: livro
+tema: IA
+layout: post
+capa: assets/construindo_aplicacoes_com_agentes_de_IA.png
 order: 1
 ---
 
