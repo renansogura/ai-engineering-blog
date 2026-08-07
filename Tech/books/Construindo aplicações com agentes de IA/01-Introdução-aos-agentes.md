@@ -1,3 +1,11 @@
+---
+title: Introdução aos agentes
+book: Construindo aplicações com agentes de IA
+emoji: 🤖
+category: livro
+order: 1
+---
+
 **INTRODUÇÃO AOS AGENTES DE IA**
 
 Vivemos em um mundo de constante mudanças e certamente um dos grandes players responsáveis por esse cenário é a IA. 
