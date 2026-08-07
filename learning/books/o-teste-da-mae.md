@@ -9,8 +9,6 @@ capa: assets/o_teste_da_mae.png
 order: 1
 ---
 
-**O Teste da mãe**
-
 Já faz mais de um ano que li esse livro e confesso que foi uma leitura tão boa que dificilmente vou esquecer tão cedo, arrisco a dizer que provavelmente devo ler novamente nos próximos anos. Trata-se daqueles livros que você não da nada por conta de um nome que a primeira vista não parece fazer muito sentido com a classificação, mas acredite, faz muito sentido!
 
 Certamente, quando você era pequeno e construia alguma coisa na qual você se orgulhava a primeira coisa que você fazia era mostrar para a sua mãe o resultado. Um exemplo comum seria realizar um desenho todo rabiscado e perguntar se a sua mãe compraria o seu desenho no valor de uma obra do Van Gogh. Obviamente sua mãe diria que compraria e que o desenho esta incrível, mas na verdade ela não esta dizendo isso porque o desenho ele é bom e tem valor, mas sim pelo simples motivo de que ela te ama. 
