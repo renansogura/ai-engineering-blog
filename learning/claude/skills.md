@@ -1,3 +1,11 @@
+---
+title: Skills — criando skills
+book: Claude
+emoji: ✳️
+category: ferramenta
+order: 2
+---
+
 **Skill**
 
 Para aqueles que utilizam o Claude, especialmente o Claude Code, já ouviu a frase "crie Skills no Claude". Arrisco a dizer que a primeira reação após escutar essa frase foi abrir o Claude code e pedir para ele criar uma skill para realizar "x, y, e z" mas sem a menor ideia do que estava fazendo. Pois bem, eu também passei por esse momento mas depois de um tempo passei a entender que na verdade é muito mais simples do que parece e minha ideia é mostrar como eu entendo a sua funcionalidade. 
