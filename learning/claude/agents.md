@@ -3,10 +3,10 @@ title: Agents — construindo agentes
 book: Claude
 emoji: ✳️
 category: ferramenta
+tema: IA
+layout: post
 order: 1
 ---
-
-**Agentes**
 
 Os Agentes de IA estão cada vez mais famosos e nesse blog é muito provável que seja o assunto de maior estudo. A ideia aqui não é ser exaustivo e explicar novamente o que é um agente, mas sim, olhar para quais as funcionalidades que o Claude traz na criação de agentes de IA. 
 
