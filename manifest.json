@@ -6,5 +6,13 @@
     "emoji": "🤖",
     "category": "livro",
     "order": 1
+  },
+  {
+    "path": "Tech/books/Construindo aplicações com agentes de IA/02-Projetando-sistemas-de-agentes.md",
+    "title": "Projetando sistemas de agentes",
+    "book": "Construindo aplicações com agentes de IA",
+    "emoji": "🤖",
+    "category": "livro",
+    "order": 2
   }
 ]
