@@ -48,5 +48,15 @@
     "tema": "IA",
     "capa": "",
     "order": 2
+  },
+  {
+    "path": "Tech/books/Construindo aplicações com agentes de IA/Projeto-de-ux-para-sistemas-agenticos.md",
+    "title": "Projetando sistemas de agentes",
+    "book": "Construindo aplicações com agentes de IA",
+    "emoji": "🤖",
+    "category": "livro",
+    "tema": "IA",
+    "capa": "assets/construindo_aplicacoes_com_agentes_de_IA.png",
+    "order": 3
   }
 ]
