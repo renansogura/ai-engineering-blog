@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "path": "Tech/books/Construindo aplicações com agentes de IA/01-Introdução-aos-agentes.md",
+    "title": "Introdução aos agentes",
+    "book": "Construindo aplicações com agentes de IA",
+    "emoji": "🤖",
+    "category": "livro",
+    "order": 1
+  }
+]
