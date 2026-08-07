@@ -9,8 +9,6 @@ capa: assets/construindo_aplicacoes_com_agentes_de_IA.png
 order: 1
 ---
 
-**INTRODUÇÃO AOS AGENTES DE IA**
-
 Vivemos em um mundo de constante mudanças e certamente um dos grandes players responsáveis por esse cenário é a IA. 
 Quando olhamos os períodos de maior avanço tecnológico, podemos notar alguns comportamentos em comum, e, uma observação importante é que não estou aqui para discutir qualquer previsão mas sim o comportamento.
 Historicamente as guerras foram os maiores catalisadores do avanço tecnológico, pois a urgência forçava essa realidade. Podemos avaliar esse comportamento com uma reta crescente ou até mesmo com um pico de crescimento em determinado período.
