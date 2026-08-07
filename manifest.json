@@ -8,6 +8,14 @@
     "order": 1
   },
   {
+    "path": "learning/books/o-teste-da-mae.md",
+    "title": "O Teste da Mãe",
+    "book": "O Teste da Mãe",
+    "emoji": "🧪",
+    "category": "livro",
+    "order": 1
+  },
+  {
     "path": "learning/claude/agents.md",
     "title": "Agents — construindo agentes",
     "book": "Claude",
