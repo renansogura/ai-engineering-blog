@@ -15,8 +15,8 @@
     "book": "O Teste da Mãe",
     "emoji": "🧪",
     "category": "livro",
-    "tema": "Geral",
-    "capa": "",
+    "tema": "Negócios",
+    "capa": "assets/o_teste_da_mae.png",
     "order": 1
   },
   {
