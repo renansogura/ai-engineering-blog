@@ -17,7 +17,9 @@ existem diferentes modalidades de interação entre agentes e usuário. Desde ch
 
 A interface gráfica é a forma visual e interativa que o usuário tem para interagir com o sistemas de agentes. As interfaces costumam combinar textos, drag and drop, botões, ícones e entre outras funcionalidades que melhoram a experiência do usuário. Em um dos projetos que participei, tivemos um time de agentes bastante complexo mas que ao juntar tudo em um .html ficou muito interessante a visualização de como os agentes estavam operando. Muitas vezes a interface gráfica ela não ajuda apenas o usuário final, mas também o desenvolvedor a validar se o resultado está coerente com os requisitos. 
 
-**2. Interface de fala e voz:** Talvez um dos mais famosos por conta da Siri ou alexa, essa interface é aquela que o usuário não precisa digitar, ela aproveita a linguagem falada para se comunicar. Mas como funciona? O seu microfone é responsável por captar as ondas de som do ar, em seguida, o conversor analógico valida a frequência e o  comprimento de onda, encaminha para um modelo de IA (rede neural) que compara os valores encontrados com os treinados e identifica as palavras, por fim, a voz vira texto no computador, a IA lê e responde. Aqui temos dois pontos interessantes: 
+**2. Interface de fala e voz:** 
+
+Talvez um dos mais famosos por conta da Siri ou alexa, essa interface é aquela que o usuário não precisa digitar, ela aproveita a linguagem falada para se comunicar. Mas como funciona? O seu microfone é responsável por captar as ondas de som do ar, em seguida, o conversor analógico valida a frequência e o  comprimento de onda, encaminha para um modelo de IA (rede neural) que compara os valores encontrados com os treinados e identifica as palavras, por fim, a voz vira texto no computador, a IA lê e responde. Aqui temos dois pontos interessantes: 
 
 Primeiro, aceite o quanto antes que você não vai se livrar da física. Eu fui uma das grandes vítimas dessa disciplina na faculdade, e, apesar de sempre gostar da disciplina era extremamente complicado mas reconheço que mesmo em tecnologia os conceitos continuam sendo fundamentais. 
 
@@ -25,7 +27,9 @@ Segundo, são tantos processos desde o microfone até a resposta da IA que na mi
 
 Posso dizer que um dos meus grandes sonhos seria conseguir construir uma interface de voz que opere igual o jarvis. Hoje trabalho bastante com o claude Code, imagina que incrível seria ao invés de escrever o prompt ele seja desenhado pela minha própria voz e o Jarvis responda se aquele prompt faz sentido. É como se eu pudesse trabalhar andando por ai, então posso trabalhar enquanto lavo roupa. É provável que já seja possível criar um Jarvis com essa funcionalidade, mas para ser sincero nunca sentei para olhar. 
 
-**3. Interface de vídeo:** Para ser sincero eu nunca mexi em uma, apenas acompanhei que alguns processos seletivos estão começando a colocar etapas em que você tem uma entrevista com um agente de IA em que ele realiza as perguntas por voz e guarda a sua resposta em algum database. Confesso que a ideia não me agrada mas se essa é a condição que a tecnologia impõe, acredito que não tenha muito que se possa fazer. 
+**3. Interface de vídeo:** 
+
+Para ser sincero eu nunca mexi em uma, apenas acompanhei que alguns processos seletivos estão começando a colocar etapas em que você tem uma entrevista com um agente de IA em que ele realiza as perguntas por voz e guarda a sua resposta em algum database. Confesso que a ideia não me agrada mas se essa é a condição que a tecnologia impõe, acredito que não tenha muito que se possa fazer. 
 
 Um fato interessante, é que é possível combinar modalidades e esse método é bem comum atualmente. O grande desafio é conseguir transitar perfeitamente entre as modalidades, mantendo o estado e o contexto durante todo o processo. 
 
