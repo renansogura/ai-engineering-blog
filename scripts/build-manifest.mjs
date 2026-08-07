@@ -52,6 +52,8 @@ for (const file of files) {
     book: fm.book,
     emoji: fm.emoji || '📄',
     category: fm.category === 'ferramenta' ? 'ferramenta' : 'livro',
+    tema: fm.tema || 'Geral',
+    capa: fm.capa || '',
     order: Number(fm.order) || 0,
   });
 }
