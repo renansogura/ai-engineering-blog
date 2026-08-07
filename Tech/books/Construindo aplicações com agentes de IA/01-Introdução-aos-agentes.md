@@ -35,6 +35,8 @@ Existem vários tipos de agentes, dentre eles:
 
 **2. Agentes de desenvolvimento:** O claude code e o Codex são grandes exemplos, então aqui temos agentes que constroem códigos com base nas suas instruções.
 
+**3. Agentes analíticos:** Confesso que é um dos meus favoritos, pois ao longo da minha graduação não me recordo de quantas vezes recebi planilhas com infinitas linhas e colunas e não tinha ideia por onde começar a minha análise. Com esse tipo de agente, ele te ajuda a estruturar os dados e agiliza as análises. É como se as visões mudassem de "Preciso entender os dados dessa planilha para depois avaliar os resultados" para "Quais foram os resultados e o que posso concluir a partir deles?". Talvez escrevendo aqui não faça muito sentido mas quando você colocar a mão na massa para montar um dashboard com planilhas gigantescas esse agente vai ser muito útil. 
+
 Citei apenas alguns exemplos de agentes que temos mas existem outros que atendem diferentes necessidades. 
 
 **Boas práticas para a construção de agentes**
@@ -52,16 +54,12 @@ Um bom agente deve atender alguns pré-requisitos(obs: Não significa que se nã
 **Sucesso na construção do agente**
 
 Um agente apesar de complexo ele continua sendo um modelo estatístico que é treinado para reconhecer padrões. No entanto, isso não significa que precisamos limitar ele a tarefas repetitivas 
-conhecendo apenas suas entradas e saídas, e, para ser honesto para esse tipo de situação seria mais interessante construir uma automação, visto que nõ consumo de tokens e o tempo de resposta de um script 
-é infinitamente mais rápido. 
+conhecendo apenas suas entradas e saídas, e, para ser honesto para esse tipo de situação seria mais interessante construir uma automação, visto que não há consumo de tokens e o tempo de resposta de um script é infinitamente mais rápido. 
 
 A ideia com esse bloco é incentivar que as equipes testem os modelos, arquiteturas e fluxos de trabalho disponíveis. O objetivo é explorar a criatividade de uma LLM e não travá-la a perguntas e respostas. 
 
 **Frameworks agênticos:**
 
-Pense em um framework como se fosse uma ferramenta que busca facilitar a construção dos agentes. Cada uma possui seus prós e contras. Podemos citar o LangChain, LangGraph, Autogen e o CrewAI. 
-Em minha experiência tive a oportunidade de trabalhar com o Langchain em que seguimos a teoria dos grafos e construímos um fluxo de trabalho em que encadeamos o passo a passo.
-Além disso, trabalhei também com o CrewAI devido ao seu ponto forte na construção de equipes de agentes, onde a criatividade é o limite, com essa ferramenta
-construi aplicações que automatizavam o trabalho do project Manager em metologias como Scrum e PDCA. 
+Pense em um framework como se fosse uma ferramenta que busca facilitar a construção dos agentes. Cada uma possui seus prós e contras. Podemos citar o LangChain, LangGraph, Autogen e o CrewAI. Em minha experiência tive a oportunidade de trabalhar com o Langchain em que seguimos a teoria dos grafos e construímos um fluxo de trabalho em que encadeamos o passo a passo. Além disso, trabalhei também com o CrewAI devido ao seu ponto forte na construção de equipes de agentes, onde a criatividade é o limite, com essa ferramenta construi aplicações que automatizavam o trabalho do project Manager em metologias como Scrum e PDCA. 
 
 O Objetivo não é ser exaustivo mas apresentar os pontos que julgo importante na leitura e como eu os interpreto. Espero que gostem :)
