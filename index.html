@@ -3,283 +3,391 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renan Seiichi Ogura — notas de leitura</title>
+<title>Caderno aberto — Renan Seiichi Ogura</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #f6f8fc;
-    --card: #ffffff;
-    --line: #e3e8f2;
-    --text: #1c2434;
-    --dim: #6a7488;
-    --book: #f0900f;   /* âmbar — livros */
-    --tool: #12b48a;   /* verde-água — ferramentas */
-    --glow-book: rgba(240,144,15,.16);
-    --glow-tool: rgba(18,180,138,.16);
-    --display: 'Space Grotesk', system-ui, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper:      #FCFBF8;
+    --ink:        #191C22;
+    --ink-soft:   #6B6F7A;
+    --rule:       #E4E2DA;
+    --rule-soft:  #EFEDE6;
+    --highlight:  #FBE983;
+    --indigo:     #2E3A6B;
+
+    --display: 'Fraunces', Georgia, serif;
+    --sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --mono:    'IBM Plex Mono', ui-monospace, monospace;
   }
+
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
     margin:0;
-    font-family:var(--display);
-    color:var(--text);
-    background:
-      radial-gradient(900px 500px at 85% -10%, rgba(18,180,138,.08), transparent 60%),
-      radial-gradient(800px 500px at 5% 5%, rgba(240,144,15,.07), transparent 55%),
-      var(--bg);
-    line-height:1.5;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
   a{ color:inherit; text-decoration:none; }
+  button{ font:inherit; color:inherit; background:none; border:none; padding:0; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--indigo); outline-offset:3px; border-radius:2px; }
 
-  .wrap{ max-width: 760px; margin:0 auto; padding: 0 1.4rem; }
+  .wrap{ max-width:820px; margin:0 auto; padding:0 1.5rem; }
 
-  /* ---------- HERO ---------- */
-  header{ padding: 4.5rem 0 2.5rem; }
-  .hero{ display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap; }
-  .bot{ width:78px; height:78px; flex-shrink:0; }
-  .hero-txt{ flex:1; min-width:220px; }
-  .kicker{
-    font-family:var(--mono);
-    font-size:.78rem; letter-spacing:.08em;
-    color:var(--tool); margin:0 0 .5rem;
+  /* ── Marca-texto (elemento assinatura) ─────────────── */
+  .mark{ position:relative; display:inline-block; }
+  .mark > span{ position:relative; z-index:1; }
+  .mark::before{
+    content:''; position:absolute; z-index:0;
+    left:-.4em; right:-.4em; top:.12em; bottom:.06em;
+    background:var(--highlight);
+    border-radius:2px 7px 3px 9px / 9px 3px 7px 2px;
+    transform:rotate(-.7deg) scaleX(0);
+    transform-origin:left center;
+    animation:swipe .34s cubic-bezier(.2,.8,.3,1) forwards;
   }
-  .kicker::before{ content:"● "; color:var(--tool); }
+  @keyframes swipe{ to{ transform:rotate(-.7deg) scaleX(1); } }
+
+  /* ── Cabeçalho ─────────────────────────────────────── */
+  header{ padding:4.5rem 0 2.75rem; display:flex; gap:1.75rem; align-items:flex-start; }
+  .bot{ width:64px; flex:0 0 64px; color:var(--ink); margin-top:.4rem; }
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0 0 .9rem;
+  }
   h1{
-    font-size:clamp(1.9rem, 5vw, 2.7rem);
-    font-weight:700; letter-spacing:-.02em; margin:0 0 .6rem;
-    color:var(--text);
+    font-family:var(--display);
+    font-size:clamp(2.4rem,7vw,3.6rem);
+    font-weight:600; font-variation-settings:'SOFT' 40,'WONK' 1;
+    line-height:1.02; letter-spacing:-.025em; margin:0 0 .85rem;
   }
-  header p{ color:var(--dim); max-width:54ch; margin:0; font-size:1.02rem; }
+  .lede{ color:var(--ink-soft); max-width:46ch; margin:0; font-size:1rem; }
 
-  /* ---------- SECTION ---------- */
-  section{ margin-top: 3rem; }
-  .sec-head{ display:flex; align-items:center; gap:.7rem; margin-bottom:1.1rem; }
-  .chip{
-    font-family:var(--mono); font-size:.72rem; font-weight:500;
-    padding:.28rem .6rem; border-radius:999px;
-    border:1px solid currentColor;
+  /* ── Navegação ─────────────────────────────────────── */
+  nav{ border-top:1px solid var(--rule); padding-top:1.5rem; }
+  .tabs{ display:flex; gap:1.6rem; align-items:baseline; margin-bottom:1.1rem; }
+  .tab{
+    font-family:var(--display); font-size:1.35rem; font-weight:600;
+    letter-spacing:-.015em; color:var(--ink-soft); transition:color .18s ease;
   }
-  .sec-head h2{ font-size:1.1rem; font-weight:600; margin:0; }
-  .books .chip{ color:var(--book); }
-  .tools .chip{ color:var(--tool); }
+  .tab:hover{ color:var(--ink); }
+  .tab.is-on{ color:var(--ink); }
 
-  /* ---------- CARD (accordion) ---------- */
-  .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    margin-bottom:.85rem;
+  .temas{ display:flex; gap:1.2rem; flex-wrap:wrap; align-items:center; }
+  .tema{
+    font-family:var(--mono); font-size:.76rem; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--ink-soft); transition:color .18s ease;
+  }
+  .tema:hover{ color:var(--ink); }
+  .tema.is-on{ color:var(--ink); }
+
+  /* ── Prateleira ────────────────────────────────────── */
+  main{ padding:2.6rem 0 5rem; }
+  .shelf{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(146px,1fr));
+    column-gap:1.75rem; row-gap:2.6rem;
+    overflow-x:clip; padding-top:.5rem;
+  }
+  .item{ opacity:0; animation:rise .42s cubic-bezier(.2,.8,.3,1) forwards; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none;} }
+
+  .book-slot{ position:relative; padding-bottom:.9rem; }
+  /* a régua da prateleira atravessa a largura toda; itens da mesma
+     fileira desenham na mesma altura e formam uma linha contínua */
+  .book-slot::after{
+    content:''; position:absolute; left:-100vw; right:-100vw; bottom:0;
+    height:2px; background:var(--ink); opacity:.13; border-radius:1px;
+  }
+  .book{
+    position:relative; width:100%; aspect-ratio:2/3;
+    border-radius:2px 5px 5px 2px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:.75rem; padding:1.6rem 1.05rem 2.6rem 1.55rem; text-align:center;
     overflow:hidden;
-    box-shadow:0 1px 2px rgba(28,36,52,.04);
-    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 1px 2px rgba(25,28,34,.14), 0 8px 14px -10px rgba(25,28,34,.3);
+    transition:transform .26s cubic-bezier(.2,.9,.3,1), box-shadow .26s ease;
+    cursor:pointer;
   }
-  .card:hover{ transform:translateY(-2px); }
-  .books .card:hover{ border-color:var(--book); box-shadow:0 12px 32px -14px var(--glow-book); }
-  .tools .card:hover{ border-color:var(--tool); box-shadow:0 12px 32px -14px var(--glow-tool); }
+  .book::before{ /* lombada */
+    content:''; position:absolute; left:0; top:0; bottom:0; width:9px;
+    background:var(--spine); box-shadow:inset -1px 0 0 rgba(0,0,0,.09);
+  }
+  .book::after{ /* miolo de páginas na borda direita */
+    content:''; position:absolute; right:0; top:3px; bottom:3px; width:4px;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,.07) 0 1px,transparent 1px 3px);
+  }
+  .book:hover{
+    transform:translateY(-6px) rotate(-1.1deg);
+    box-shadow:0 2px 3px rgba(25,28,34,.16), 0 16px 22px -12px rgba(25,28,34,.34);
+  }
+  .book.has-img{ padding:0; gap:0; }
+  .book img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .book.has-img::after{ display:none; }
+  /* cercadura discreta, como uma moldura impressa na capa */
+  .book:not(.has-img) > .cerca{
+    position:absolute; inset:11px 9px 11px 18px;
+    border:1px solid rgba(25,28,34,.13); border-radius:1px; pointer-events:none;
+  }
+  .book .glifo{ font-size:1.5rem; line-height:1; }
+  .book .impresso{
+    font-family:var(--display); font-weight:600;
+    font-size:.82rem; line-height:1.22; letter-spacing:-.008em;
+    color:rgba(25,28,34,.82); max-width:100%;
+    display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
+  }
 
-  .card-head{
-    display:flex; align-items:center; gap:1rem;
-    padding:1.15rem 1.3rem; cursor:pointer; user-select:none;
+  .item h3{
+    font-family:var(--sans); font-size:.86rem; font-weight:600;
+    line-height:1.35; margin:.85rem 0 .15rem; letter-spacing:-.005em;
   }
-  .emoji{ font-size:1.5rem; line-height:1; flex-shrink:0;
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
-  .card:hover .emoji{ transform:scale(1.18) rotate(-6deg); }
-  .card-title{ flex:1; }
-  .card-title .name{ font-size:1.1rem; font-weight:600; display:block; }
-  .card-title .meta{ font-family:var(--mono); font-size:.74rem; color:var(--dim); }
-  .caret{
-    width:22px; height:22px; flex-shrink:0; color:var(--dim);
-    transition:transform .3s ease, color .3s ease;
+  .item .meta{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.07em;
+    color:var(--ink-soft); margin:.85rem 0 0; text-transform:uppercase;
   }
-  .card.open .caret{ transform:rotate(90deg); }
-  .books .card.open .caret{ color:var(--book); }
-  .tools .card.open .caret{ color:var(--tool); }
+  .item h3 + .meta{ margin-top:0; }
 
-  /* single-link cards (no chapters) */
-  .card.solo .card-head .caret{ transform:rotate(-45deg); }
+  /* tons de tecido de capa */
+  .t-0{ background:#E8DCC8; --spine:#C4AC84; }
+  .t-1{ background:#D6E2D9; --spine:#9FBBA7; }
+  .t-2{ background:#DCE0EE; --spine:#A3ADD4; }
+  .t-3{ background:#EEDCD9; --spine:#D4A49C; }
+  .t-4{ background:#E4E1D2; --spine:#B9B28B; }
+  .t-5{ background:#D9E4E8; --spine:#9FBBC6; }
+  .has-img{ --spine:rgba(0,0,0,.22); }
 
-  /* chapters panel */
-  .panel{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .32s ease; }
-  .card.open .panel{ grid-template-rows:1fr; }
-  .panel-inner{ overflow:hidden; }
-  .chapters{ padding:0 1.3rem 1rem 1.3rem; }
-  .chapter{
-    display:flex; align-items:center; gap:.8rem;
-    padding:.7rem .2rem; border-top:1px solid var(--line);
-    color:var(--dim); transition:color .18s ease, padding-left .18s ease;
+  /* ── Ficha de catálogo (capítulos) ─────────────────── */
+  .ficha{
+    margin-top:2.75rem; border:1px solid var(--rule);
+    border-radius:3px; background:#fff;
+    box-shadow:0 10px 24px -18px rgba(25,28,34,.5);
+    display:none;
   }
-  .chapter:hover{ color:var(--text); padding-left:.5rem; }
-  .num{ font-family:var(--mono); font-size:.8rem; opacity:.7; }
-  .books .chapter:hover .num{ color:var(--book); }
-  .tools .chapter:hover .num{ color:var(--tool); }
-  .chapter .arw{ margin-left:auto; font-family:var(--mono); font-size:.78rem;
-    opacity:0; transition:opacity .18s ease; }
-  .chapter:hover .arw{ opacity:.8; }
+  .ficha.is-open{ display:block; animation:rise .3s cubic-bezier(.2,.8,.3,1) forwards; }
+  .ficha-top{
+    display:flex; align-items:center; gap:.7rem;
+    padding:.95rem 1.25rem; border-bottom:1px solid var(--rule);
+    background:linear-gradient(var(--rule-soft),#fff);
+  }
+  .ficha-top .tag{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .ficha-top h2{
+    font-family:var(--display); font-size:1.05rem; font-weight:600;
+    margin:0; flex:1; letter-spacing:-.01em;
+  }
+  .ficha-top .fechar{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.08em;
+    color:var(--ink-soft); text-transform:uppercase;
+  }
+  .ficha-top .fechar:hover{ color:var(--ink); }
+  .linha{
+    display:flex; align-items:baseline; gap:1rem;
+    padding:.8rem 1.25rem; border-bottom:1px solid var(--rule-soft);
+    transition:background .16s ease, padding-left .16s ease;
+  }
+  .linha:last-child{ border-bottom:none; }
+  .linha:hover{ background:var(--rule-soft); padding-left:1.6rem; }
+  .linha .n{ font-family:var(--mono); font-size:.74rem; color:var(--ink-soft); }
+  .linha .t{ flex:1; font-size:.94rem; }
+  .linha .ir{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em;
+    color:var(--ink-soft); opacity:0; transition:opacity .16s ease;
+  }
+  .linha:hover .ir{ opacity:1; }
+
+  .vazio{
+    font-family:var(--mono); font-size:.82rem; color:var(--ink-soft);
+    padding:2rem 0; grid-column:1/-1;
+  }
 
   footer{
-    margin:4rem 0 3.5rem; padding-top:1.5rem;
-    border-top:1px solid var(--line);
-    font-family:var(--mono); font-size:.76rem; color:var(--dim);
+    border-top:1px solid var(--rule); padding:1.6rem 0 4rem;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.07em;
+    color:var(--ink-soft); text-transform:uppercase;
   }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; animation:none !important; }
+  @media (max-width:560px){
+    header{ flex-direction:column; gap:1.1rem; padding-top:3.25rem; }
+    .bot{ width:52px; flex-basis:auto; margin-top:0; }
+    .shelf{ grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); column-gap:1.15rem; row-gap:2.2rem; }
+    .book{ padding:1.15rem .7rem 1.9rem 1.15rem; gap:.55rem; }
+    .book .glifo{ font-size:1.2rem; }
+    .book .impresso{ font-size:.72rem; }
+    .tabs{ gap:1.2rem; }
+    .temas{ gap:1rem; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    .mark::before{ transform:rotate(-.7deg) scaleX(1); }
+    .item{ opacity:1; }
   }
 </style>
 </head>
 <body>
 
 <div class="wrap">
-  <header>
-    <div class="hero">
-      <!-- mascote robô animado -->
-      <svg class="bot" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#12b48a"/>
-            <stop offset="1" stop-color="#f0900f"/>
-          </linearGradient>
-        </defs>
-        <!-- antena -->
-        <line x1="50" y1="14" x2="50" y2="26" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="50" cy="11" r="4" fill="#12b48a">
-          <animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/>
-        </circle>
-        <!-- cabeça -->
-        <rect x="22" y="26" width="56" height="46" rx="14" fill="#ffffff" stroke="url(#g)" stroke-width="2.5"/>
-        <!-- olhos -->
-        <g fill="#12b48a">
-          <circle cx="40" cy="46" r="5.5">
-            <animate attributeName="ry" values="5.5;0.6;5.5" dur="4s" keyTimes="0;0.04;0.08" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="60" cy="46" r="5.5">
-            <animate attributeName="ry" values="5.5;0.6;5.5" dur="4s" keyTimes="0;0.04;0.08" repeatCount="indefinite"/>
-          </circle>
-        </g>
-        <!-- sorriso -->
-        <path d="M39 58 Q50 66 61 58" stroke="#f0900f" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <!-- orelhinhas -->
-        <rect x="16" y="42" width="6" height="14" rx="3" fill="url(#g)"/>
-        <rect x="78" y="42" width="6" height="14" rx="3" fill="url(#g)"/>
-        <animateTransform xmlns="http://www.w3.org/2000/svg" attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="3s" repeatCount="indefinite" additive="sum"/>
-      </svg>
 
-      <div class="hero-txt">
-        <p class="kicker">Renan Seiichi Ogura</p>
-        <h1>Notas de leitura &amp; ferramentas</h1>
-      </div>
+  <header>
+    <svg class="bot" viewBox="0 0 72 84" fill="none" stroke="currentColor"
+         stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M36 6v7"/><circle cx="36" cy="4" r="2.6" fill="var(--highlight)" stroke="none"/>
+      <rect x="16" y="13" width="40" height="30" rx="9"/>
+      <circle cx="28" cy="27" r="2.6" fill="currentColor" stroke="none"/>
+      <circle cx="44" cy="27" r="2.6" fill="currentColor" stroke="none"/>
+      <path d="M29 35q7 5 14 0"/>
+      <path d="M10 25v7"/><path d="M62 25v7"/>
+      <path d="M36 55V49"/>
+      <path d="M36 55q-11-7-26-3v20q15-4 26 3q11-7 26-3V52q-15-4-26 3Z"/>
+    </svg>
+
+    <div>
+      <p class="eyebrow">Ex libris · Renan Seiichi Ogura</p>
+      <h1>Caderno aberto</h1>
+      <p class="lede">Anotações dos livros que leio e das ferramentas que testo em engenharia de IA. Escolha uma prateleira.</p>
     </div>
-    <p style="margin-top:1.4rem">Um diário aberto do que ando lendo e testando em engenharia de IA. Clique em um título para abrir os capítulos ou as anotações.</p>
   </header>
 
-  <section class="books">
-    <div class="sec-head">
-      <span class="chip">livros</span>
-      <h2>Leituras</h2>
-    </div>
-    <div id="books-list"></div>
-  </section>
+  <nav>
+    <div class="tabs" id="tabs"></div>
+    <div class="temas" id="temas"></div>
+  </nav>
 
-  <section class="tools">
-    <div class="sec-head">
-      <span class="chip">ferramentas</span>
-      <h2>Aprendizados práticos</h2>
-    </div>
-    <div id="tools-list"></div>
-  </section>
+  <main>
+    <div class="shelf" id="shelf"></div>
 
-  <footer>construído à mão por Renan Seiichi Ogura · github.com/renansogura/ai-engineering-blog</footer>
+    <section class="ficha" id="ficha" aria-live="polite">
+      <div class="ficha-top">
+        <span class="tag">Sumário</span>
+        <h2 id="ficha-nome"></h2>
+        <button class="fechar" onclick="fecharFicha()">Fechar</button>
+      </div>
+      <div id="ficha-linhas"></div>
+    </section>
+  </main>
+
+  <footer>Escrito e mantido por Renan Seiichi Ogura</footer>
 </div>
 
 <script>
-  // Converte um caminho relativo (ex: "learning/claude/agents.md") em URL segura,
-  // trocando a extensão .md por .html (o Jekyll do GitHub Pages faz essa conversão).
-  function toHtml(pathStr){
-    const segs = pathStr.split('/');
-    segs[segs.length - 1] = segs[segs.length - 1].replace(/\.md$/, '.html');
-    return segs.map(encodeURIComponent).join('/');
+  let ITENS = [];
+  let atual = { categoria:'livro', tema:null };
+  const TONS = ['t-0','t-1','t-2','t-3','t-4','t-5'];
+
+  const esc = s => String(s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const url = p => p.split('/').map(encodeURIComponent).join('/');
+  const urlDoc = p => {
+    const s = p.split('/');
+    s[s.length-1] = s[s.length-1].replace(/\.md$/,'.html');
+    return s.map(encodeURIComponent).join('/');
+  };
+
+  function tomDe(tema){
+    const todos = [...new Set(ITENS.map(i => i.tema))];
+    return TONS[Math.max(0, todos.indexOf(tema)) % TONS.length];
   }
 
-  const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`;
-
-  // Agrupa os itens do manifest.json por "book" (nome do livro/ferramenta)
-  function groupByBook(items){
-    const map = new Map();
-    for(const it of items){
-      if(!map.has(it.book)){
-        map.set(it.book, { name: it.book, emoji: it.emoji, category: it.category, chapters: [] });
-      }
-      map.get(it.book).chapters.push(it);
+  function agrupar(itens){
+    const m = new Map();
+    for(const it of itens){
+      if(!m.has(it.book)) m.set(it.book, {
+        nome:it.book, emoji:it.emoji, tema:it.tema, capa:it.capa, caps:[]
+      });
+      m.get(it.book).caps.push(it);
     }
-    return [...map.values()];
+    for(const g of m.values()) g.caps.sort((a,b)=>a.order-b.order);
+    return [...m.values()];
   }
 
-  function cardHTML(group){
-    // Um único item = card "solo" (link direto, sem expandir)
-    if(group.chapters.length === 1){
-      const href = toHtml(group.chapters[0].path);
-      return `<a class="card solo" href="${href}">
-        <div class="card-head">
-          <span class="emoji">${group.emoji}</span>
-          <span class="card-title"><span class="name">${group.name}</span></span>
-          ${caret}
-        </div></a>`;
-    }
-    // Vários itens = card que expande em capítulos
-    const chapters = group.chapters.map((c, i) => {
-      const href = toHtml(c.path);
-      const n = String(i + 1).padStart(2, '0');
-      return `<a class="chapter" href="${href}">
-        <span class="num">${n}</span><span>${c.title}</span><span class="arw">abrir →</span>
-      </a>`;
+  function desenhar(){
+    const naCategoria = ITENS.filter(i => i.category === atual.categoria);
+    const temas = [...new Set(naCategoria.map(i => i.tema))];
+    if(!temas.includes(atual.tema)) atual.tema = temas[0] ?? null;
+
+    document.getElementById('tabs').innerHTML = ['livro','ferramenta'].map(c => {
+      const rotulo = c === 'livro' ? 'Livros' : 'Ferramentas';
+      const on = atual.categoria === c;
+      return `<button class="tab ${on?'is-on':''}" onclick="verCategoria('${c}')">
+        ${on ? `<span class="mark"><span>${rotulo}</span></span>` : rotulo}
+      </button>`;
     }).join('');
-    return `<div class="card">
-      <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
-        <span class="emoji">${group.emoji}</span>
-        <span class="card-title"><span class="name">${group.name}</span>
-          <span class="meta">${group.chapters.length} capítulos</span></span>
-        ${caret}
-      </div>
-      <div class="panel"><div class="panel-inner"><div class="chapters">${chapters}</div></div></div>
-    </div>`;
+
+    document.getElementById('temas').innerHTML = temas.map(t => {
+      const on = t === atual.tema;
+      return `<button class="tema ${on?'is-on':''}" onclick="verTema('${esc(t).replace(/'/g,"\\'")}')">
+        ${on ? `<span class="mark"><span>${esc(t)}</span></span>` : esc(t)}
+      </button>`;
+    }).join('');
+
+    const grupos = agrupar(naCategoria.filter(i => i.tema === atual.tema));
+    const shelf = document.getElementById('shelf');
+
+    if(!grupos.length){
+      shelf.innerHTML = `<p class="vazio">Prateleira vazia — a próxima anotação aparece aqui.</p>`;
+    } else {
+      shelf.innerHTML = grupos.map((g,i) => {
+        const unico = g.caps.length === 1;
+        const acao = unico
+          ? `onclick="location.href='${urlDoc(g.caps[0].path)}'"`
+          : `onclick='abrirFicha(${JSON.stringify(g.nome)})'`;
+        const capa = g.capa
+          ? `<div class="book has-img" ${acao} role="button" tabindex="0" aria-label="${esc(g.nome)}"><img src="${url(g.capa)}" alt="Capa de ${esc(g.nome)}" loading="lazy"></div>`
+          : `<div class="book ${tomDe(g.tema)}" ${acao} role="button" tabindex="0" aria-label="${esc(g.nome)}">
+               <span class="cerca"></span>
+               <span class="glifo">${g.emoji}</span>
+               <span class="impresso">${esc(g.nome)}</span>
+             </div>`;
+        return `
+          <article class="item" style="animation-delay:${i*45}ms">
+            <div class="book-slot">${capa}</div>
+            ${g.capa ? `<h3>${esc(g.nome)}</h3>` : ''}
+            <p class="meta">${unico ? 'Ler nota' : g.caps.length + ' capítulos'}</p>
+          </article>`;
+      }).join('');
+    }
+    fecharFicha();
   }
 
-  function renderEmpty(containerId, mensagem){
-    document.getElementById(containerId).innerHTML =
-      `<p style="color:var(--dim); font-size:.95rem;">${mensagem}</p>`;
+  function verCategoria(c){ atual.categoria = c; atual.tema = null; desenhar(); }
+  function verTema(t){ atual.tema = t; desenhar(); }
+
+  function abrirFicha(nome){
+    const g = agrupar(ITENS.filter(i =>
+      i.category === atual.categoria && i.tema === atual.tema)).find(x => x.nome === nome);
+    if(!g) return;
+    document.getElementById('ficha-nome').textContent = g.nome;
+    document.getElementById('ficha-linhas').innerHTML = g.caps.map((c,i) => `
+      <a class="linha" href="${urlDoc(c.path)}">
+        <span class="n">${String(i+1).padStart(2,'0')}</span>
+        <span class="t">${esc(c.title)}</span>
+        <span class="ir">Ler →</span>
+      </a>`).join('');
+    const f = document.getElementById('ficha');
+    f.classList.add('is-open');
+    f.scrollIntoView({ behavior:'smooth', block:'nearest' });
   }
 
-  async function init(){
-    let items = [];
+  function fecharFicha(){ document.getElementById('ficha').classList.remove('is-open'); }
+
+  (async function(){
     try{
-      const res = await fetch('manifest.json', { cache: 'no-store' });
-      if(!res.ok) throw new Error('manifest.json não encontrado');
-      items = await res.json();
-    }catch(err){
-      console.error(err);
-      renderEmpty('books-list', 'Ainda não há conteúdo publicado.');
-      renderEmpty('tools-list', 'Ainda não há conteúdo publicado.');
+      const r = await fetch('manifest.json', { cache:'no-store' });
+      if(!r.ok) throw new Error();
+      ITENS = await r.json();
+    }catch{
+      document.getElementById('shelf').innerHTML =
+        `<p class="vazio">Nenhuma anotação publicada ainda. Adicione um arquivo .md com o cabeçalho preenchido.</p>`;
       return;
     }
-
-    const books = groupByBook(items.filter(i => i.category === 'livro'));
-    const tools = groupByBook(items.filter(i => i.category === 'ferramenta'));
-
-    document.getElementById('books-list').innerHTML = books.length
-      ? books.map(cardHTML).join('')
-      : '<p style="color:var(--dim); font-size:.95rem;">Nenhum livro publicado ainda.</p>';
-
-    document.getElementById('tools-list').innerHTML = tools.length
-      ? tools.map(cardHTML).join('')
-      : '<p style="color:var(--dim); font-size:.95rem;">Nenhuma ferramenta publicada ainda.</p>';
-  }
-
-  init();
+    desenhar();
+  })();
 </script>
 
 </body>
