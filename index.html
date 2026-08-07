@@ -197,71 +197,89 @@
 </div>
 
 <script>
-  const enc = seg => seg.map(encodeURIComponent).join('/');
-  const toHtml = seg => { const s=[...seg]; s[s.length-1]=s[s.length-1].replace(/\.md$/,'.html'); return enc(s); };
+  // Converte um caminho relativo (ex: "learning/claude/agents.md") em URL segura,
+  // trocando a extensão .md por .html (o Jekyll do GitHub Pages faz essa conversão).
+  function toHtml(pathStr){
+    const segs = pathStr.split('/');
+    segs[segs.length - 1] = segs[segs.length - 1].replace(/\.md$/, '.html');
+    return segs.map(encodeURIComponent).join('/');
+  }
 
   const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`;
 
-  const books = [
-    {
-      emoji:'🤖',
-      name:'Construindo aplicações com agentes de IA',
-      base:['Tech','books','Construindo aplicações com agentes de IA'],
-      chapters:[
-        { n:'01', title:'Introdução aos agentes', file:'01-Introdução-aos-agentes.md' },
-        { n:'02', title:'Projetando sistemas de agentes', file:'02-Projetando-sistemas-de-agentes.md' },
-      ]
-    },
-    {
-      emoji:'🎲',
-      name:'O Andar do Bêbado',
-      base:['learning','books'],
-      solo:{ file:'Andar do bêbado.md' }
+  // Agrupa os itens do manifest.json por "book" (nome do livro/ferramenta)
+  function groupByBook(items){
+    const map = new Map();
+    for(const it of items){
+      if(!map.has(it.book)){
+        map.set(it.book, { name: it.book, emoji: it.emoji, category: it.category, chapters: [] });
+      }
+      map.get(it.book).chapters.push(it);
     }
-  ];
+    return [...map.values()];
+  }
 
-  const tools = [
-    {
-      emoji:'✨',
-      name:'Claude',
-      base:['learning','claude'],
-      chapters:[
-        { n:'#', title:'Agents — construindo agentes', file:'agents.md' },
-        { n:'#', title:'Skills — criando skills', file:'skills.md' },
-      ]
-    }
-  ];
-
-  function cardHTML(item){
-    if(item.solo){
-      const href = toHtml([...item.base, item.solo.file]);
+  function cardHTML(group){
+    // Um único item = card "solo" (link direto, sem expandir)
+    if(group.chapters.length === 1){
+      const href = toHtml(group.chapters[0].path);
       return `<a class="card solo" href="${href}">
         <div class="card-head">
-          <span class="emoji">${item.emoji}</span>
-          <span class="card-title"><span class="name">${item.name}</span>
-            <span class="meta">${item.base.join(' / ')}</span></span>
+          <span class="emoji">${group.emoji}</span>
+          <span class="card-title"><span class="name">${group.name}</span></span>
           ${caret}
         </div></a>`;
     }
-    const chapters = item.chapters.map(c=>{
-      const href = toHtml([...item.base, c.file]);
+    // Vários itens = card que expande em capítulos
+    const chapters = group.chapters.map((c, i) => {
+      const href = toHtml(c.path);
+      const n = String(i + 1).padStart(2, '0');
       return `<a class="chapter" href="${href}">
-        <span class="num">${c.n}</span><span>${c.title}</span><span class="arw">abrir →</span>
+        <span class="num">${n}</span><span>${c.title}</span><span class="arw">abrir →</span>
       </a>`;
     }).join('');
     return `<div class="card">
       <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
-        <span class="emoji">${item.emoji}</span>
-        <span class="card-title"><span class="name">${item.name}</span>
-          <span class="meta">${item.chapters.length} ${item.chapters.length>1?'capítulos':'capítulo'} · ${item.base.slice(0,2).join(' / ')}</span></span>
+        <span class="emoji">${group.emoji}</span>
+        <span class="card-title"><span class="name">${group.name}</span>
+          <span class="meta">${group.chapters.length} capítulos</span></span>
         ${caret}
       </div>
       <div class="panel"><div class="panel-inner"><div class="chapters">${chapters}</div></div></div>
     </div>`;
   }
 
-  document.getElementById('books-list').innerHTML = books.map(cardHTML).join('');
-  document.getElementById('tools-list').innerHTML = tools.map(cardHTML).join('');
+  function renderEmpty(containerId, mensagem){
+    document.getElementById(containerId).innerHTML =
+      `<p style="color:var(--dim); font-size:.95rem;">${mensagem}</p>`;
+  }
+
+  async function init(){
+    let items = [];
+    try{
+      const res = await fetch('manifest.json', { cache: 'no-store' });
+      if(!res.ok) throw new Error('manifest.json não encontrado');
+      items = await res.json();
+    }catch(err){
+      console.error(err);
+      renderEmpty('books-list', 'Ainda não há conteúdo publicado.');
+      renderEmpty('tools-list', 'Ainda não há conteúdo publicado.');
+      return;
+    }
+
+    const books = groupByBook(items.filter(i => i.category === 'livro'));
+    const tools = groupByBook(items.filter(i => i.category === 'ferramenta'));
+
+    document.getElementById('books-list').innerHTML = books.length
+      ? books.map(cardHTML).join('')
+      : '<p style="color:var(--dim); font-size:.95rem;">Nenhum livro publicado ainda.</p>';
+
+    document.getElementById('tools-list').innerHTML = tools.length
+      ? tools.map(cardHTML).join('')
+      : '<p style="color:var(--dim); font-size:.95rem;">Nenhuma ferramenta publicada ainda.</p>';
+  }
+
+  init();
 </script>
 
 </body>
