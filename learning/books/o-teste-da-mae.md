@@ -3,6 +3,9 @@ title: O Teste da Mãe
 book: O Teste da Mãe
 emoji: 🧪
 category: livro
+tema: Negócios
+layout: post
+capa: assets/o_teste_da_mae.png
 order: 1
 ---
 
