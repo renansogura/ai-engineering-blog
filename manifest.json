@@ -22,5 +22,13 @@
     "emoji": "🤖",
     "category": "livro",
     "order": 2
+  },
+  {
+    "path": "learning/claude/skills.md",
+    "title": "Skills — criando skills",
+    "book": "Claude",
+    "emoji": "✳️",
+    "category": "ferramenta",
+    "order": 2
   }
 ]
