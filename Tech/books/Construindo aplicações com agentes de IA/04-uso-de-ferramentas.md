@@ -1,5 +1,5 @@
 ---
-title: Projetando sistemas de agentes
+title: Uso de ferramentas
 book: Construindo aplicações com agentes de IA
 emoji: 🤖
 category: livro
