@@ -1,5 +1,5 @@
 ---
-title: Projetando sistemas de agentes
+title: Projeto de ux para sistemas agenticos
 book: Construindo aplicações com agentes de IA
 emoji: 🤖
 category: livro
