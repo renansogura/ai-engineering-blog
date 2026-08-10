@@ -23,7 +23,7 @@ Talvez um dos mais famosos por conta da Siri ou alexa, essa interface é aquela 
 
 Primeiro, aceite o quanto antes que você não vai se livrar da física. Eu fui uma das grandes vítimas dessa disciplina na faculdade, e, apesar de sempre gostar da disciplina era extremamente complicado mas reconheço que mesmo em tecnologia os conceitos continuam sendo fundamentais. 
 
-Segundo, são tantos processos desde o microfone até a resposta da IA que na minha cabeça deveria demorar uns 3 anos para responder. O incrível é que isso ocorre em segundos e isso me leva a dúvida em que ponto estamos da tecnologia. 
+Segundo, são tantos processos desde o microfone até a resposta da IA que na minha cabeça deveria demorar uns 3 anos para responder. O incrível é ocorre em segundos e isso me leva a dúvida em que ponto estamos da tecnologia. 
 
 Posso dizer que um dos meus grandes sonhos seria conseguir construir uma interface de voz que opere igual o jarvis. Hoje trabalho bastante com o claude Code, imagina que incrível seria ao invés de escrever o prompt ele seja desenhado pela minha própria voz e o Jarvis responda se aquele prompt faz sentido. É como se eu pudesse trabalhar andando por ai, então posso trabalhar enquanto lavo roupa. É provável que já seja possível criar um Jarvis com essa funcionalidade, mas para ser sincero nunca sentei para olhar. 
 
