@@ -1,5 +1,15 @@
 [
   {
+    "path": "Tech/books/01-Introdução-à-construção-de-aplicações-de-IA-com-modelos-de-fundação.md",
+    "title": "Introdução à construção de aplicações de IA com modelos de fundação",
+    "book": "Engenharia de IA",
+    "emoji": "🤖",
+    "category": "livro",
+    "tema": "IA",
+    "capa": "assets/Engenharia_de_IA.png",
+    "order": 1
+  },
+  {
     "path": "Tech/books/Construindo aplicações com agentes de IA/01-Introdução-aos-agentes.md",
     "title": "Introdução aos agentes",
     "book": "Construindo aplicações com agentes de IA",
